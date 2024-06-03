@@ -385,12 +385,12 @@ export function observableValue<T, TChange = void>(nameOrOwner: string | object,
 	return new ObservableValue(debugNameData, initialValue, strictEquals);
 }
 
-export function observableValueOpts<T>(
+export function observableValueOpts<T, TChange = void>(
 	options: IDebugNameData & {
 		equalsFn?: EqualityComparer<T>;
 	},
 	initialValue: T
-): ISettableObservable<T> {
+): ISettableObservable<T, TChange> {
 	return new ObservableValue(
 		new DebugNameData(options.owner, options.debugName, undefined),
 		initialValue,
